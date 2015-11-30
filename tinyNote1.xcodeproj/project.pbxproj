@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		742441BD1C0C4ED4001A38B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441BC1C0C4ED4001A38B9 /* AppDelegate.swift */; };
+		742441BF1C0C4ED4001A38B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441BE1C0C4ED4001A38B9 /* ViewController.swift */; };
+		742441C21C0C4ED4001A38B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 742441C01C0C4ED4001A38B9 /* Main.storyboard */; };
+		742441C51C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 742441C31C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld */; };
+		742441C71C0C4ED4001A38B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 742441C61C0C4ED4001A38B9 /* Assets.xcassets */; };
+		742441CA1C0C4ED4001A38B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 742441C81C0C4ED4001A38B9 /* LaunchScreen.storyboard */; };
+		742441D51C0C4ED5001A38B9 /* tinyNote1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441D41C0C4ED5001A38B9 /* tinyNote1Tests.swift */; };
+		742441E01C0C4ED5001A38B9 /* tinyNote1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441DF1C0C4ED5001A38B9 /* tinyNote1UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		742441D11C0C4ED5001A38B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 742441B11C0C4ED4001A38B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 742441B81C0C4ED4001A38B9;
+			remoteInfo = tinyNote1;
+		};
+		742441DC1C0C4ED5001A38B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 742441B11C0C4ED4001A38B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 742441B81C0C4ED4001A38B9;
+			remoteInfo = tinyNote1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		742441B91C0C4ED4001A38B9 /* tinyNote1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tinyNote1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		742441BC1C0C4ED4001A38B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		742441BE1C0C4ED4001A38B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		742441C11C0C4ED4001A38B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		742441C41C0C4ED4001A38B9 /* tinyNote1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tinyNote1.xcdatamodel; sourceTree = "<group>"; };
+		742441C61C0C4ED4001A38B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		742441C91C0C4ED4001A38B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		742441CB1C0C4ED4001A38B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		742441D01C0C4ED5001A38B9 /* tinyNote1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tinyNote1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		742441D41C0C4ED5001A38B9 /* tinyNote1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tinyNote1Tests.swift; sourceTree = "<group>"; };
+		742441D61C0C4ED5001A38B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		742441DB1C0C4ED5001A38B9 /* tinyNote1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tinyNote1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		742441DF1C0C4ED5001A38B9 /* tinyNote1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tinyNote1UITests.swift; sourceTree = "<group>"; };
+		742441E11C0C4ED5001A38B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		742441B61C0C4ED4001A38B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742441CD1C0C4ED5001A38B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742441D81C0C4ED5001A38B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		742441B01C0C4ED4001A38B9 = {
+			isa = PBXGroup;
+			children = (
+				742441BB1C0C4ED4001A38B9 /* tinyNote1 */,
+				742441D31C0C4ED5001A38B9 /* tinyNote1Tests */,
+				742441DE1C0C4ED5001A38B9 /* tinyNote1UITests */,
+				742441BA1C0C4ED4001A38B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		742441BA1C0C4ED4001A38B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				742441B91C0C4ED4001A38B9 /* tinyNote1.app */,
+				742441D01C0C4ED5001A38B9 /* tinyNote1Tests.xctest */,
+				742441DB1C0C4ED5001A38B9 /* tinyNote1UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		742441BB1C0C4ED4001A38B9 /* tinyNote1 */ = {
+			isa = PBXGroup;
+			children = (
+				742441BC1C0C4ED4001A38B9 /* AppDelegate.swift */,
+				742441BE1C0C4ED4001A38B9 /* ViewController.swift */,
+				742441C01C0C4ED4001A38B9 /* Main.storyboard */,
+				742441C61C0C4ED4001A38B9 /* Assets.xcassets */,
+				742441C81C0C4ED4001A38B9 /* LaunchScreen.storyboard */,
+				742441CB1C0C4ED4001A38B9 /* Info.plist */,
+				742441C31C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld */,
+			);
+			path = tinyNote1;
+			sourceTree = "<group>";
+		};
+		742441D31C0C4ED5001A38B9 /* tinyNote1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				742441D41C0C4ED5001A38B9 /* tinyNote1Tests.swift */,
+				742441D61C0C4ED5001A38B9 /* Info.plist */,
+			);
+			path = tinyNote1Tests;
+			sourceTree = "<group>";
+		};
+		742441DE1C0C4ED5001A38B9 /* tinyNote1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				742441DF1C0C4ED5001A38B9 /* tinyNote1UITests.swift */,
+				742441E11C0C4ED5001A38B9 /* Info.plist */,
+			);
+			path = tinyNote1UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		742441B81C0C4ED4001A38B9 /* tinyNote1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 742441E41C0C4ED5001A38B9 /* Build configuration list for PBXNativeTarget "tinyNote1" */;
+			buildPhases = (
+				742441B51C0C4ED4001A38B9 /* Sources */,
+				742441B61C0C4ED4001A38B9 /* Frameworks */,
+				742441B71C0C4ED4001A38B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tinyNote1;
+			productName = tinyNote1;
+			productReference = 742441B91C0C4ED4001A38B9 /* tinyNote1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		742441CF1C0C4ED5001A38B9 /* tinyNote1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 742441E71C0C4ED5001A38B9 /* Build configuration list for PBXNativeTarget "tinyNote1Tests" */;
+			buildPhases = (
+				742441CC1C0C4ED5001A38B9 /* Sources */,
+				742441CD1C0C4ED5001A38B9 /* Frameworks */,
+				742441CE1C0C4ED5001A38B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				742441D21C0C4ED5001A38B9 /* PBXTargetDependency */,
+			);
+			name = tinyNote1Tests;
+			productName = tinyNote1Tests;
+			productReference = 742441D01C0C4ED5001A38B9 /* tinyNote1Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		742441DA1C0C4ED5001A38B9 /* tinyNote1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 742441EA1C0C4ED5001A38B9 /* Build configuration list for PBXNativeTarget "tinyNote1UITests" */;
+			buildPhases = (
+				742441D71C0C4ED5001A38B9 /* Sources */,
+				742441D81C0C4ED5001A38B9 /* Frameworks */,
+				742441D91C0C4ED5001A38B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				742441DD1C0C4ED5001A38B9 /* PBXTargetDependency */,
+			);
+			name = tinyNote1UITests;
+			productName = tinyNote1UITests;
+			productReference = 742441DB1C0C4ED5001A38B9 /* tinyNote1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		742441B11C0C4ED4001A38B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Mikhail Zhadko";
+				TargetAttributes = {
+					742441B81C0C4ED4001A38B9 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					742441CF1C0C4ED5001A38B9 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 742441B81C0C4ED4001A38B9;
+					};
+					742441DA1C0C4ED5001A38B9 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 742441B81C0C4ED4001A38B9;
+					};
+				};
+			};
+			buildConfigurationList = 742441B41C0C4ED4001A38B9 /* Build configuration list for PBXProject "tinyNote1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 742441B01C0C4ED4001A38B9;
+			productRefGroup = 742441BA1C0C4ED4001A38B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				742441B81C0C4ED4001A38B9 /* tinyNote1 */,
+				742441CF1C0C4ED5001A38B9 /* tinyNote1Tests */,
+				742441DA1C0C4ED5001A38B9 /* tinyNote1UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		742441B71C0C4ED4001A38B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				742441CA1C0C4ED4001A38B9 /* LaunchScreen.storyboard in Resources */,
+				742441C71C0C4ED4001A38B9 /* Assets.xcassets in Resources */,
+				742441C21C0C4ED4001A38B9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742441CE1C0C4ED5001A38B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742441D91C0C4ED5001A38B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		742441B51C0C4ED4001A38B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				742441BF1C0C4ED4001A38B9 /* ViewController.swift in Sources */,
+				742441BD1C0C4ED4001A38B9 /* AppDelegate.swift in Sources */,
+				742441C51C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742441CC1C0C4ED5001A38B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				742441D51C0C4ED5001A38B9 /* tinyNote1Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742441D71C0C4ED5001A38B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				742441E01C0C4ED5001A38B9 /* tinyNote1UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		742441D21C0C4ED5001A38B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 742441B81C0C4ED4001A38B9 /* tinyNote1 */;
+			targetProxy = 742441D11C0C4ED5001A38B9 /* PBXContainerItemProxy */;
+		};
+		742441DD1C0C4ED5001A38B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 742441B81C0C4ED4001A38B9 /* tinyNote1 */;
+			targetProxy = 742441DC1C0C4ED5001A38B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		742441C01C0C4ED4001A38B9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				742441C11C0C4ED4001A38B9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		742441C81C0C4ED4001A38B9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				742441C91C0C4ED4001A38B9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		742441E21C0C4ED5001A38B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		742441E31C0C4ED5001A38B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		742441E51C0C4ED5001A38B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = tinyNote1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MZ-LLC.tinyNote1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		742441E61C0C4ED5001A38B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = tinyNote1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MZ-LLC.tinyNote1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		742441E81C0C4ED5001A38B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = tinyNote1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MZ-LLC.tinyNote1Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tinyNote1.app/tinyNote1";
+			};
+			name = Debug;
+		};
+		742441E91C0C4ED5001A38B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = tinyNote1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MZ-LLC.tinyNote1Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tinyNote1.app/tinyNote1";
+			};
+			name = Release;
+		};
+		742441EB1C0C4ED5001A38B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = tinyNote1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MZ-LLC.tinyNote1UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = tinyNote1;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		742441EC1C0C4ED5001A38B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = tinyNote1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "MZ-LLC.tinyNote1UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = tinyNote1;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		742441B41C0C4ED4001A38B9 /* Build configuration list for PBXProject "tinyNote1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				742441E21C0C4ED5001A38B9 /* Debug */,
+				742441E31C0C4ED5001A38B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		742441E41C0C4ED5001A38B9 /* Build configuration list for PBXNativeTarget "tinyNote1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				742441E51C0C4ED5001A38B9 /* Debug */,
+				742441E61C0C4ED5001A38B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		742441E71C0C4ED5001A38B9 /* Build configuration list for PBXNativeTarget "tinyNote1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				742441E81C0C4ED5001A38B9 /* Debug */,
+				742441E91C0C4ED5001A38B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		742441EA1C0C4ED5001A38B9 /* Build configuration list for PBXNativeTarget "tinyNote1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				742441EB1C0C4ED5001A38B9 /* Debug */,
+				742441EC1C0C4ED5001A38B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		742441C31C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				742441C41C0C4ED4001A38B9 /* tinyNote1.xcdatamodel */,
+			);
+			currentVersion = 742441C41C0C4ED4001A38B9 /* tinyNote1.xcdatamodel */;
+			path = tinyNote1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 742441B11C0C4ED4001A38B9 /* Project object */;
+}
