@@ -17,5 +17,6 @@ extension CategoryList {
     
     @NSManaged var categoryName: String?
     @NSManaged var releaseDate: NSDate?
+
     
 }

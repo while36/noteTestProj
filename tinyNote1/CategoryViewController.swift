@@ -11,9 +11,13 @@ import CoreData
 
 class CategoryViewController: UIViewController, NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.tableView!.dataSource = self
+        //self.tableView!.delegate = self
         
         let request = NSFetchRequest(entityName: "CategoryList")
         let titleSort = NSSortDescriptor(key: "categoryName", ascending: true)
@@ -62,7 +66,59 @@ class CategoryViewController: UIViewController, NSFetchedResultsControllerDelega
         cell.textLabel?.text = category.categoryName
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        switch editingStyle {
+        case .Delete:
+            let category = fetchedResultController.objectAtIndexPath(indexPath) as! CategoryList
+            context.deleteObject(category)
+            
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print("Error saving context after delete: \(error.localizedDescription)")
+            }
+        default:break
+        }
+    }
+    
+    
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView?.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView?.endUpdates()
+    }
 
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .Insert:
+            tableView?.insertSections(NSIndexSet(index:sectionIndex), withRowAnimation: .Automatic)
+        case .Delete:
+            tableView?.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+        default: break
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            tableView?.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
+        case .Delete:
+            tableView?.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+        default: break
+        }
+        
+        
+    }
+    
     
     @IBAction func addCategory(sender: UIBarButtonItem) {
         
