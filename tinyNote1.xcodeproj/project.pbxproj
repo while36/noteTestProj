@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		742441BD1C0C4ED4001A38B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441BC1C0C4ED4001A38B9 /* AppDelegate.swift */; };
-		742441BF1C0C4ED4001A38B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441BE1C0C4ED4001A38B9 /* ViewController.swift */; };
+		742441BF1C0C4ED4001A38B9 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441BE1C0C4ED4001A38B9 /* CategoryViewController.swift */; };
 		742441C21C0C4ED4001A38B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 742441C01C0C4ED4001A38B9 /* Main.storyboard */; };
 		742441C51C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 742441C31C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld */; };
 		742441C71C0C4ED4001A38B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 742441C61C0C4ED4001A38B9 /* Assets.xcassets */; };
 		742441CA1C0C4ED4001A38B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 742441C81C0C4ED4001A38B9 /* LaunchScreen.storyboard */; };
 		742441D51C0C4ED5001A38B9 /* tinyNote1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441D41C0C4ED5001A38B9 /* tinyNote1Tests.swift */; };
 		742441E01C0C4ED5001A38B9 /* tinyNote1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441DF1C0C4ED5001A38B9 /* tinyNote1UITests.swift */; };
+		742441EE1C0C5002001A38B9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441ED1C0C5002001A38B9 /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		742441F01C0C502D001A38B9 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441EF1C0C502D001A38B9 /* EditViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		742441F21C0CC9D5001A38B9 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742441F11C0CC9D5001A38B9 /* CategoryList.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,7 @@
 /* Begin PBXFileReference section */
 		742441B91C0C4ED4001A38B9 /* tinyNote1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tinyNote1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		742441BC1C0C4ED4001A38B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		742441BE1C0C4ED4001A38B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		742441BE1C0C4ED4001A38B9 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		742441C11C0C4ED4001A38B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		742441C41C0C4ED4001A38B9 /* tinyNote1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tinyNote1.xcdatamodel; sourceTree = "<group>"; };
 		742441C61C0C4ED4001A38B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		742441DB1C0C4ED5001A38B9 /* tinyNote1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tinyNote1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		742441DF1C0C4ED5001A38B9 /* tinyNote1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tinyNote1UITests.swift; sourceTree = "<group>"; };
 		742441E11C0C4ED5001A38B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		742441ED1C0C5002001A38B9 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		742441EF1C0C502D001A38B9 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		742441F11C0CC9D5001A38B9 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				742441BC1C0C4ED4001A38B9 /* AppDelegate.swift */,
-				742441BE1C0C4ED4001A38B9 /* ViewController.swift */,
+				742441ED1C0C5002001A38B9 /* ListViewController.swift */,
+				742441EF1C0C502D001A38B9 /* EditViewController.swift */,
+				742441BE1C0C4ED4001A38B9 /* CategoryViewController.swift */,
+				742441F11C0CC9D5001A38B9 /* CategoryList.swift */,
 				742441C01C0C4ED4001A38B9 /* Main.storyboard */,
 				742441C61C0C4ED4001A38B9 /* Assets.xcassets */,
 				742441C81C0C4ED4001A38B9 /* LaunchScreen.storyboard */,
@@ -258,8 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				742441BF1C0C4ED4001A38B9 /* ViewController.swift in Sources */,
+				742441F01C0C502D001A38B9 /* EditViewController.swift in Sources */,
+				742441F21C0CC9D5001A38B9 /* CategoryList.swift in Sources */,
+				742441BF1C0C4ED4001A38B9 /* CategoryViewController.swift in Sources */,
 				742441BD1C0C4ED4001A38B9 /* AppDelegate.swift in Sources */,
+				742441EE1C0C5002001A38B9 /* ListViewController.swift in Sources */,
 				742441C51C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +412,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = tinyNote1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MZ-LLC.tinyNote1";
@@ -411,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = tinyNote1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MZ-LLC.tinyNote1";
