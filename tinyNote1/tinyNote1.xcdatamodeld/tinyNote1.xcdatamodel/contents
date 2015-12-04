@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="CategoryList" representedClassName=".CategoryList" syncable="YES">
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationshipNoteList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="NoteList" inverseName="relationshipCategoryList" inverseEntity="NoteList" syncable="YES"/>
+    </entity>
+    <entity name="NoteList" representedClassName="NoteList" syncable="YES">
+        <attribute name="noteCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="noteDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="noteText" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationshipCategoryList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryList" inverseName="relationshipNoteList" inverseEntity="CategoryList" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CategoryList" positionX="-63" positionY="-45" width="128" height="73"/>
+        <element name="NoteList" positionX="297" positionY="-72" width="162" height="103"/>
+    </elements>
+</model>
