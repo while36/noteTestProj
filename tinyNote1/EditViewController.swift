@@ -11,7 +11,8 @@ import CoreData
 
 class EditViewController: UIViewController, NSFetchedResultsControllerDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     var textToEdit: String = ""
@@ -48,7 +49,11 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }()
     
     @IBAction func showCategory(sender: AnyObject) {
-        tableView.hidden = false
+        if(pickerView.hidden) {
+            pickerView.hidden = false
+        } else {
+            pickerView.hidden = true
+        }
     }
     @IBAction func saveAction(sender: AnyObject) {
         
@@ -80,6 +85,7 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate {
         note.noteText = textView.text
         note.noteDate = NSDate()
         note.noteCategory = selectedCategory
+            print(selectedCategory, "1112")
         
         do {
             try self.context.save()
@@ -93,9 +99,6 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate {
         doneButton.enabled = true
     }
     
-    @IBAction func ShowPickerView(sender: AnyObject) {
-        
-    }
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }

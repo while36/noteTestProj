@@ -154,22 +154,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRs-79-Ehk">
-                                <rect key="frame" x="0.0" y="167" width="600" height="216"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="FcW-uA-IGi"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="FcW-uA-IGi"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="dataSource" destination="BNE-rg-Zn2" id="aZK-So-rNA"/>
-                                    <outlet property="delegate" destination="BNE-rg-Zn2" id="P9L-Nm-gpR"/>
-                                </connections>
-                            </pickerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Gg-E8-hpi">
                                 <rect key="frame" x="0.0" y="28" width="600" height="304"/>
                                 <animations/>
@@ -182,55 +166,61 @@
                                     <outlet property="delegate" destination="BNE-rg-Zn2" id="FfH-bY-fzc"/>
                                 </connections>
                             </textView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XKA-kZ-MUk">
-                                <rect key="frame" x="243" y="428" width="115" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="heH-IL-IOf">
-                                        <rect key="frame" x="0.0" y="28" width="115" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="heH-IL-IOf" id="k3m-ky-tPQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="115" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIB-Hi-kEi">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="YQb-Pg-zb3"/>
-                                    <barButtonItem title="Set category" width="513" id="HIG-gj-uWP">
+                                    <barButtonItem title="Category" width="258" id="HIG-gj-uWP">
                                         <connections>
                                             <action selector="showCategory:" destination="BNE-rg-Zn2" id="nlr-qa-NTv"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRs-79-Ehk">
+                                <rect key="frame" x="93" y="364" width="140" height="216"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="ECA-cj-uuj"/>
+                                    <constraint firstAttribute="height" constant="216" id="FcW-uA-IGi"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FcW-uA-IGi"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="BNE-rg-Zn2" id="aZK-So-rNA"/>
+                                    <outlet property="delegate" destination="BNE-rg-Zn2" id="P9L-Nm-gpR"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KRs-79-Ehk" firstAttribute="top" secondItem="9Gg-E8-hpi" secondAttribute="bottom" constant="32" id="21A-y7-G8d"/>
+                            <constraint firstItem="LIB-Hi-kEi" firstAttribute="top" secondItem="KRs-79-Ehk" secondAttribute="bottom" constant="-24" id="6AH-fS-sIU"/>
                             <constraint firstItem="KRs-79-Ehk" firstAttribute="top" secondItem="jQN-CS-lC6" secondAttribute="bottom" constant="320" id="8uO-qw-xkH"/>
                             <constraint firstItem="KRs-79-Ehk" firstAttribute="bottom" secondItem="mGd-p3-Bqa" secondAttribute="top" constant="-44" id="EF6-Jg-tGR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9Gg-E8-hpi" secondAttribute="trailing" constant="-20" id="QaR-0Y-RKk"/>
-                            <constraint firstItem="KRs-79-Ehk" firstAttribute="leading" secondItem="s9c-kt-psT" secondAttribute="leadingMargin" constant="-20" id="XQy-fP-Ze5"/>
-                            <constraint firstItem="KRs-79-Ehk" firstAttribute="leading" secondItem="LIB-Hi-kEi" secondAttribute="leading" id="bjB-hj-JBx"/>
+                            <constraint firstItem="KRs-79-Ehk" firstAttribute="leading" secondItem="s9c-kt-psT" secondAttribute="leadingMargin" constant="73" id="XQy-fP-Ze5"/>
+                            <constraint firstItem="KRs-79-Ehk" firstAttribute="centerY" secondItem="s9c-kt-psT" secondAttribute="centerY" id="Z2a-zC-GX4"/>
+                            <constraint firstItem="LIB-Hi-kEi" firstAttribute="leading" secondItem="9Gg-E8-hpi" secondAttribute="leading" id="aH4-fe-Uew"/>
                             <constraint firstItem="mGd-p3-Bqa" firstAttribute="top" secondItem="KRs-79-Ehk" secondAttribute="bottom" id="c5n-cn-QeC"/>
                             <constraint firstItem="9Gg-E8-hpi" firstAttribute="top" secondItem="jQN-CS-lC6" secondAttribute="bottom" constant="8" id="dIi-Hm-4cw"/>
-                            <constraint firstItem="KRs-79-Ehk" firstAttribute="trailing" secondItem="LIB-Hi-kEi" secondAttribute="trailing" id="eeb-gj-PSM"/>
-                            <constraint firstItem="KRs-79-Ehk" firstAttribute="bottom" secondItem="LIB-Hi-kEi" secondAttribute="bottom" constant="-44" id="esN-qI-1Zz"/>
                             <constraint firstItem="mGd-p3-Bqa" firstAttribute="top" secondItem="9Gg-E8-hpi" secondAttribute="bottom" constant="268" id="fjb-0P-2xX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KRs-79-Ehk" secondAttribute="trailing" constant="-20" id="qMO-x0-9oR"/>
+                            <constraint firstItem="KRs-79-Ehk" firstAttribute="top" secondItem="jQN-CS-lC6" secondAttribute="bottom" constant="320" id="n0e-Ih-Taq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KRs-79-Ehk" secondAttribute="trailing" constant="347" id="qMO-x0-9oR"/>
+                            <constraint firstItem="LIB-Hi-kEi" firstAttribute="trailing" secondItem="9Gg-E8-hpi" secondAttribute="trailing" id="xO8-qd-MUN"/>
                             <constraint firstItem="9Gg-E8-hpi" firstAttribute="leading" secondItem="s9c-kt-psT" secondAttribute="leadingMargin" constant="-20" id="zOb-DS-XRw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="8uO-qw-xkH"/>
+                                <exclude reference="EF6-Jg-tGR"/>
+                                <exclude reference="Z2a-zC-GX4"/>
+                                <exclude reference="n0e-Ih-Taq"/>
                                 <exclude reference="c5n-cn-QeC"/>
                             </mask>
                         </variation>
@@ -244,7 +234,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="TaK-YC-pRn" id="QWo-mp-3dN"/>
-                        <outlet property="tableView" destination="XKA-kZ-MUk" id="6da-7c-1RE"/>
+                        <outlet property="pickerView" destination="KRs-79-Ehk" id="Qh2-b1-run"/>
                         <outlet property="textView" destination="9Gg-E8-hpi" id="8F5-vh-scF"/>
                         <segue destination="vHC-hC-Rzg" kind="show" identifier="done" id="rTO-C1-wwy"/>
                     </connections>

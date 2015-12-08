@@ -27,8 +27,6 @@ class CategoryViewController: UIViewController, NSFetchedResultsControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var aaa:NSDictionary = ["cateeee": "1"]
-        print(aaa)
 //        let watchRequest = NSFetchRequest(entityName: "CategoryList")
 //        let atitleSort = NSSortDescriptor(key: "categoryName", ascending: true)
 //        watchRequest.sortDescriptors = [atitleSort]
@@ -41,19 +39,19 @@ class CategoryViewController: UIViewController, NSFetchedResultsControllerDelega
             self.session = WCSession.defaultSession()
             self.session.delegate = self
             self.session.activateSession()
-            let watchRequest = NSFetchRequest(entityName: "CategoryList")
-            let titleSort = NSSortDescriptor(key: "categoryName", ascending: true)
-            watchRequest.sortDescriptors = [titleSort]
+            let watchRequest = NSFetchRequest(entityName: "NoteList")
+            let titleSort = NSSortDescriptor(key: "noteCategory", ascending: true)
+            let textSort = NSSortDescriptor(key: "noteText", ascending: true)
+            let dateSort = NSSortDescriptor(key: "noteDate", ascending: true)
+            watchRequest.sortDescriptors = [titleSort, textSort, dateSort]
             watchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
             
             do {
-                var dicForWatch = [String:AnyObject]()
                 let results:NSArray = try context.executeFetchRequest(watchRequest)
-                for var index = 0; index < results.count; index++ {
-                    dicForWatch = results[index] as! [String:AnyObject]
-                    session.sendMessage(dicForWatch, replyHandler: nil, errorHandler: nil)
-                    print(dicForWatch)
-                }
+                print(results)
+                let dicForWatch:[String:AnyObject] = ["1":results]
+                try session.updateApplicationContext(dicForWatch)
+                
             } catch  let error as NSError {print(error) }
             
         }

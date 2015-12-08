@@ -18,8 +18,6 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     
     var fetchedResultController: NSFetchedResultsController!
     
-    let CellDetailIdentifier = "CellDetailIdentifier"
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "notesToEdit"  {
             if let destination = segue.destinationViewController as? EditViewController {
@@ -40,7 +38,7 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
         let subtitleSort = NSSortDescriptor(key: "noteCategory", ascending: true)
         let dateSort = NSSortDescriptor(key: "noteDate", ascending: true)
         request.sortDescriptors = [titleSort, subtitleSort, dateSort]
-        
+        request.predicate = NSPredicate(format: "noteCategory = %@", argumentArray: [note])
         fetchedResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultController.delegate = self
         
@@ -74,6 +72,7 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         formatter.dateFormat = "yyyy-MM-dd"
         let note = fetchedResultController.objectAtIndexPath(indexPath) as! NoteList
+        print(note)
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell")!
         if note.noteCategory == self.note {
         cell.textLabel?.text = note.noteText

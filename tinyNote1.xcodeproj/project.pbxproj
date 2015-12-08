@@ -28,6 +28,7 @@
 		CE9CA37D1C1165020077F2E2 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CA37C1C1165020077F2E2 /* ExtensionDelegate.swift */; };
 		CE9CA37F1C1165020077F2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9CA37E1C1165020077F2E2 /* Assets.xcassets */; };
 		CE9CA3831C1165020077F2E2 /* watchNote.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CE9CA3691C1165020077F2E2 /* watchNote.app */; };
+		CEF36D161C16F54600996D8C /* CategoryRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF36D151C16F54600996D8C /* CategoryRowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		CE9CA37C1C1165020077F2E2 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		CE9CA37E1C1165020077F2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE9CA3801C1165020077F2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF36D151C16F54600996D8C /* CategoryRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				CE9CA37C1C1165020077F2E2 /* ExtensionDelegate.swift */,
 				CE9CA37E1C1165020077F2E2 /* Assets.xcassets */,
 				CE9CA3801C1165020077F2E2 /* Info.plist */,
+				CEF36D151C16F54600996D8C /* CategoryRowController.swift */,
 			);
 			path = "watchNote Extension";
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			files = (
 				CE9CA37D1C1165020077F2E2 /* ExtensionDelegate.swift in Sources */,
 				CE9CA37B1C1165020077F2E2 /* InterfaceController.swift in Sources */,
+				CEF36D161C16F54600996D8C /* CategoryRowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +800,7 @@
 				CE9CA3871C1165030077F2E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE9CA38A1C1165030077F2E2 /* Build configuration list for PBXNativeTarget "watchNote" */ = {
 			isa = XCConfigurationList;
@@ -804,6 +809,7 @@
 				CE9CA3851C1165020077F2E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

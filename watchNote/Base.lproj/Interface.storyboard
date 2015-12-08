@@ -12,12 +12,15 @@
                     <items>
                         <table alignment="left" id="FHn-SL-F1y">
                             <items>
-                                <tableRow identifier="WatchRow" id="JGw-pu-mc1">
+                                <tableRow identifier="WatchRow" id="JGw-pu-mc1" customClass="CategoryRowController" customModule="watchNote_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="afb-2d-5K6">
                                         <items>
                                             <label width="136" height="66" alignment="left" text="Label" id="qvz-BF-OLb"/>
                                         </items>
                                     </group>
+                                    <connections>
+                                        <outlet property="categoryLabel" destination="qvz-BF-OLb" id="GiU-ld-YJp"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
