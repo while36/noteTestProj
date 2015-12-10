@@ -15,11 +15,14 @@
                                 <tableRow identifier="WatchRow" id="JGw-pu-mc1" customClass="CategoryRowController" customModule="watchNote_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="afb-2d-5K6">
                                         <items>
-                                            <label width="136" height="66" alignment="left" text="Label" id="qvz-BF-OLb"/>
+                                            <label width="136" height="48" alignment="left" text="Label" id="qvz-BF-OLb">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
                                         </items>
                                     </group>
                                     <connections>
                                         <outlet property="categoryLabel" destination="qvz-BF-OLb" id="GiU-ld-YJp"/>
+                                        <segue destination="qL0-0A-8zs" kind="push" identifier="categoryToNote" id="AmT-BD-RcP"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -31,6 +34,79 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="334" y="426"/>
+        </scene>
+        <!--List Interface Controller-->
+        <scene sceneID="YQf-5k-cGo">
+            <objects>
+                <controller id="qL0-0A-8zs" customClass="ListInterfaceController" customModule="watchNote_Extension">
+                    <items>
+                        <label width="136" height="17" alignment="left" text="Label" textAlignment="center" id="eR4-RM-LqO">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <separator width="0.90000000000000002" alignment="center" alpha="0.5" id="23n-ww-u4d"/>
+                        <table alignment="left" id="atn-J0-g21">
+                            <items>
+                                <tableRow identifier="NoteRow" id="sgU-CR-qU7" customClass="NoteRowController" customModule="watchNote_Extension">
+                                    <group key="rootItem" width="1" alignment="left" layout="vertical" id="uHo-S3-tR1">
+                                        <items>
+                                            <label alignment="left" text="Label" id="ATv-CJ-Cge">
+                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                            </label>
+                                            <label alignment="left" text="Label" id="SwD-za-d8v">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="dateLabel" destination="SwD-za-d8v" id="7aR-Mr-pw5"/>
+                                        <outlet property="textLabel" destination="ATv-CJ-Cge" id="JGl-lt-K1v"/>
+                                        <segue destination="5IP-df-Ije" kind="push" identifier="ListToNote" id="hFk-lF-Gv3"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="categoryLabel" destination="eR4-RM-LqO" id="2Qv-PX-ddu"/>
+                        <outlet property="watchTable" destination="atn-J0-g21" id="iUT-aw-gwL"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="549" y="426"/>
+        </scene>
+        <!--Note Interface Controller-->
+        <scene sceneID="hik-pG-foW">
+            <objects>
+                <controller id="5IP-df-Ije" customClass="NoteInterfaceController" customModule="watchNote_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" radius="9" id="D9R-CK-CUt">
+                            <items>
+                                <label width="1" alignment="left" text="Label" textAlignment="left" numberOfLines="0" id="3QS-W0-cT5"/>
+                            </items>
+                        </group>
+                        <separator width="0.90000000000000002" alignment="center" verticalAlignment="bottom" alpha="0.5" id="o7Y-Bw-wxH"/>
+                        <group width="134" height="17" alignment="center" verticalAlignment="bottom" id="ff1-9P-Yei">
+                            <items>
+                                <label width="64" alignment="left" verticalAlignment="center" text="Label" textAlignment="center" id="Yzi-IH-MvM">
+                                    <fontDescription key="font" style="UICTFontTextStyleCallout"/>
+                                </label>
+                                <separator height="18" alignment="left" verticalAlignment="center" alpha="0.5" id="H1L-v4-CbA">
+                                    <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </separator>
+                                <label height="29" alignment="left" verticalAlignment="center" text="Label" textAlignment="center" id="PX1-h8-zW7">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="categoryLabel" destination="Yzi-IH-MvM" id="dmD-ms-Ixy"/>
+                        <outlet property="dateLabel" destination="PX1-h8-zW7" id="ORw-v4-5Vj"/>
+                        <outlet property="textLabel" destination="3QS-W0-cT5" id="AKf-jo-fjQ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="731" y="426"/>
         </scene>
     </scenes>
 </document>

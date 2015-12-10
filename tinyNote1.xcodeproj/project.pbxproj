@@ -21,6 +21,10 @@
 		CE13242C1C0ED2700013F044 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1324281C0ED2700013F044 /* CategoryList.swift */; };
 		CE13242D1C0ED2700013F044 /* NoteList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1324291C0ED2700013F044 /* NoteList+CoreDataProperties.swift */; };
 		CE13242E1C0ED2700013F044 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13242A1C0ED2700013F044 /* NoteList.swift */; };
+		CE24126F1C17E65500104C9C /* ListInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24126E1C17E65500104C9C /* ListInterfaceController.swift */; };
+		CE2412711C18423C00104C9C /* NoteRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2412701C18423C00104C9C /* NoteRowController.swift */; };
+		CE4716FC1C1943BA00587C3E /* NoteInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4716FB1C1943BA00587C3E /* NoteInterfaceController.swift */; };
+		CE4716FE1C19470E00587C3E /* EditRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4716FD1C19470E00587C3E /* EditRowController.swift */; };
 		CE9CA36D1C1165020077F2E2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9CA36B1C1165020077F2E2 /* Interface.storyboard */; };
 		CE9CA36F1C1165020077F2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9CA36E1C1165020077F2E2 /* Assets.xcassets */; };
 		CE9CA3761C1165020077F2E2 /* watchNote Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE9CA3751C1165020077F2E2 /* watchNote Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -108,6 +112,10 @@
 		CE1324281C0ED2700013F044 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryList.swift; path = tinyNote1/Model/CategoryList.swift; sourceTree = "<group>"; };
 		CE1324291C0ED2700013F044 /* NoteList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NoteList+CoreDataProperties.swift"; path = "tinyNote1/Model/NoteList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE13242A1C0ED2700013F044 /* NoteList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteList.swift; path = tinyNote1/Model/NoteList.swift; sourceTree = "<group>"; };
+		CE24126E1C17E65500104C9C /* ListInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInterfaceController.swift; sourceTree = "<group>"; };
+		CE2412701C18423C00104C9C /* NoteRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteRowController.swift; sourceTree = "<group>"; };
+		CE4716FB1C1943BA00587C3E /* NoteInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteInterfaceController.swift; sourceTree = "<group>"; };
+		CE4716FD1C19470E00587C3E /* EditRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRowController.swift; sourceTree = "<group>"; };
 		CE9CA3691C1165020077F2E2 /* watchNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9CA36C1C1165020077F2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		CE9CA36E1C1165020077F2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -245,10 +253,14 @@
 			isa = PBXGroup;
 			children = (
 				CE9CA37A1C1165020077F2E2 /* InterfaceController.swift */,
+				CE24126E1C17E65500104C9C /* ListInterfaceController.swift */,
+				CE4716FB1C1943BA00587C3E /* NoteInterfaceController.swift */,
 				CE9CA37C1C1165020077F2E2 /* ExtensionDelegate.swift */,
 				CE9CA37E1C1165020077F2E2 /* Assets.xcassets */,
 				CE9CA3801C1165020077F2E2 /* Info.plist */,
 				CEF36D151C16F54600996D8C /* CategoryRowController.swift */,
+				CE2412701C18423C00104C9C /* NoteRowController.swift */,
+				CE4716FD1C19470E00587C3E /* EditRowController.swift */,
 			);
 			path = "watchNote Extension";
 			sourceTree = "<group>";
@@ -478,8 +490,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9CA37D1C1165020077F2E2 /* ExtensionDelegate.swift in Sources */,
+				CE24126F1C17E65500104C9C /* ListInterfaceController.swift in Sources */,
 				CE9CA37B1C1165020077F2E2 /* InterfaceController.swift in Sources */,
+				CE4716FE1C19470E00587C3E /* EditRowController.swift in Sources */,
+				CE2412711C18423C00104C9C /* NoteRowController.swift in Sources */,
 				CEF36D161C16F54600996D8C /* CategoryRowController.swift in Sources */,
+				CE4716FC1C1943BA00587C3E /* NoteInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

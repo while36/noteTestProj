@@ -9,24 +9,26 @@
 import UIKit
 import CoreData
 
-class EditViewController: UIViewController, NSFetchedResultsControllerDelegate {
+class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
-
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
-    var textToEdit: String = ""
+    var notePrototype: NoteList!
     @IBOutlet weak var textView: UITextView!
     var fetchedResultController: NSFetchedResultsController!
-    var selectedCategory:String = ""
+    var selectedCategory = String()
+    var indexToDelete = NSIndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         doneButton.enabled = false
-        
+        if notePrototype != nil {
+            textView.text = notePrototype.noteText
+            selectedCategory = notePrototype.noteCategory!
+        }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        
-        textView.text = textToEdit
+
         let request = NSFetchRequest(entityName: "CategoryList")
         let categorySort = NSSortDescriptor(key: "categoryName", ascending: true)
         request.sortDescriptors = [categorySort]
@@ -49,49 +51,43 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }()
     
     @IBAction func showCategory(sender: AnyObject) {
-        if(pickerView.hidden) {
-            pickerView.hidden = false
-        } else {
-            pickerView.hidden = true
+        let alertController = UIAlertController(title: "Category", message: "Choose one", preferredStyle: .Alert)
+        let sectionData = fetchedResultController.sections![1]
+        for index in 0...sectionData.numberOfObjects {
+            var action = UIAlertAction(title: <#T##String?#>, style: <#T##UIAlertActionStyle#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
         }
+        
+        
+        
+//        if(tableView.hidden) {
+//            tableView.hidden = false
+//        } else {
+//            tableView.hidden = true
+//        }
     }
     @IBAction func saveAction(sender: AnyObject) {
         
         self.view.endEditing(true)
         doneButton.enabled = false
-        
-//        let predicate = NSPredicate(format: "objectID == %@", objectIDFromNSManagedObject)
-//        
-//        let fetchRequest = NSFetchRequest(entityName: "MyEntity")
-//        fetchRequest.predicate = predicate
-//        
-//        do {
-//            let fetchedEntities = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [MyEntity]
-//            fetchedEntities.first?.FirstPropertyToUpdate = NewValue
-//            fetchedEntities.first?.SecondPropertyToUpdate = NewValue
-//            // ... Update additional properties with new values
-//        } catch {
-//            // Do something in response to error condition
-//        }
-//        
-//        do {
-//            try self.managedObjectContext.save()
-//        } catch {
-//            // Do something in response to error condition
-//        }
-        
-        let entity = NSEntityDescription.entityForName("NoteList", inManagedObjectContext: self.context)
-        let note = NoteList(entity:entity!, insertIntoManagedObjectContext: self.context)
-        note.noteText = textView.text
-        note.noteDate = NSDate()
-        note.noteCategory = selectedCategory
+        if notePrototype == nil {
+            let entity = NSEntityDescription.entityForName("NoteList", inManagedObjectContext: self.context)
+            let note = NoteList(entity:entity!, insertIntoManagedObjectContext: self.context)
+            note.noteText = textView.text
+            note.noteDate = NSDate()
+            note.noteCategory = selectedCategory
             print(selectedCategory, "1112")
-        
+        } else {
+            notePrototype.noteText = textView.text
+            notePrototype.noteCategory = selectedCategory
+            notePrototype.noteDate = NSDate()
+        }
         do {
             try self.context.save()
-        } catch let error as NSError {
+        }
+        catch let error as NSError {
             print("Can't save a category \(error.localizedDescription)")
         }
+        var indexPath = NSIndexPath(forRow: Int, inSection: <#T##Int#>)
         
     }
     
@@ -99,20 +95,42 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate {
         doneButton.enabled = true
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+            return 1
     }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent section: Int) -> Int {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sectionData = fetchedResultController.sections?[section] else {
             return 1
         }
         return sectionData.numberOfObjects
     }
-    func pickerView(pickerView: UIPickerView, titleForRow row:Int, forComponent section: Int) -> String! {
-        let indexPath = NSIndexPath(forRow: row, inSection: 0)
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let category = fetchedResultController.objectAtIndexPath(indexPath) as! CategoryList
+        let cell = tableView.dequeueReusableCellWithIdentifier("DropUpCell")!
+        selectedCategory = category.categoryName!
+        cell.textLabel?.text = category.categoryName
+        return cell
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let category = fetchedResultController.objectAtIndexPath(indexPath) as! CategoryList
         selectedCategory = category.categoryName!
-        return category.categoryName
+        tableView.hidden = true
     }
-    
+    @IBAction func deleteNote(sender: AnyObject) {
+//        let note = fetchedResultController.objectAtIndexPath(indexToDelete) as! NoteList
+//        context.deleteObject(note)
+//        
+//        do {
+//            try context.save()
+//        } catch let error as NSError {
+//            print("Error saving context after delete: \(error.localizedDescription)")
+//        }
+        
+    }
+    override func viewWillDisappear(animated: Bool) {
+        self.saveAction(self)
+    }
 }

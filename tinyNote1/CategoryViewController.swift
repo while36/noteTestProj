@@ -27,13 +27,6 @@ class CategoryViewController: UIViewController, NSFetchedResultsControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let watchRequest = NSFetchRequest(entityName: "CategoryList")
-//        let atitleSort = NSSortDescriptor(key: "categoryName", ascending: true)
-//        watchRequest.sortDescriptors = [atitleSort]
-//        watchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
-      //  watchRequest.returnsDistinctResults = true
-      //  watchRequest.propertiesToFetch = ["categoryName"]
-      //  watchRequest.returnsObjectsAsFaults = false
         
         if(WCSession.isSupported()) {
             self.session = WCSession.defaultSession()
@@ -43,21 +36,19 @@ class CategoryViewController: UIViewController, NSFetchedResultsControllerDelega
             let titleSort = NSSortDescriptor(key: "noteCategory", ascending: true)
             let textSort = NSSortDescriptor(key: "noteText", ascending: true)
             let dateSort = NSSortDescriptor(key: "noteDate", ascending: true)
+            
             watchRequest.sortDescriptors = [titleSort, textSort, dateSort]
             watchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
             
             do {
                 let results:NSArray = try context.executeFetchRequest(watchRequest)
-                print(results)
                 let dicForWatch:[String:AnyObject] = ["1":results]
                 try session.updateApplicationContext(dicForWatch)
                 
             } catch  let error as NSError {print(error) }
             
         }
-//        self.tableView!.dataSource = self
-//        self.tableView!.delegate = self
-        
+ 
         let request = NSFetchRequest(entityName: "CategoryList")
         let titleSort = NSSortDescriptor(key: "categoryName", ascending: true)
         request.sortDescriptors = [titleSort]
@@ -165,17 +156,23 @@ class CategoryViewController: UIViewController, NSFetchedResultsControllerDelega
         
         let addAction = UIAlertAction(title: "Add", style: .Default) { _ in
             
-            let entity = NSEntityDescription.entityForName("CategoryList", inManagedObjectContext: self.context)
-            
-            let category = CategoryList(entity:entity!, insertIntoManagedObjectContext: self.context)
-            
-            let textField = alert.textFields?.first
-            category.categoryName = textField?.text
+            print(alert.textFields?.first?.text)
+            if alert.textFields?.first?.text == "" {
+                let error = NSError.self
+                print("Can't save a category \(error)")
+                let errorAlert = UIAlertController(title: "Can't be empty string", message: nil , preferredStyle: .Alert)
+                self.presentViewController(errorAlert, animated: true, completion: nil)
+            } else {
+                let entity = NSEntityDescription.entityForName("CategoryList", inManagedObjectContext: self.context)
+                let category = CategoryList(entity:entity!, insertIntoManagedObjectContext: self.context)
+                let textField = alert.textFields?.first
+                category.categoryName = textField?.text
             
             do {
                 try self.context.save()
             } catch let error as NSError {
                 print("Can't save a category \(error.localizedDescription)")
+            }
             }
         }
         

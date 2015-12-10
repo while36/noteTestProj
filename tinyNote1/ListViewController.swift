@@ -5,14 +5,15 @@
 //  Created by Mikhail on 30/11/15.
 //  Copyright © 2015 Mikhail Zhadko. All rights reserved.
 //
-
 import UIKit
 import CoreData
+import WatchConnectivity
 
-class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate,WCSessionDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
     var note: String = ""
+    var session: WCSession!
     
     let formatter = NSDateFormatter()
     
@@ -23,7 +24,8 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
             if let destination = segue.destinationViewController as? EditViewController {
                 let indexPath = self.tableView.indexPathForSelectedRow!
                 let selectedObject = self.fetchedResultController.objectAtIndexPath(indexPath) as? NoteList
-                destination.textToEdit = selectedObject!.noteText!
+                destination.notePrototype = selectedObject
+                destination.indexToDelete = indexPath
             }
         }
     }
@@ -32,6 +34,27 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
         super.viewDidLoad()
         self.tableView!.dataSource = self
         self.tableView!.delegate = self
+        
+        if(WCSession.isSupported()) {
+            self.session = WCSession.defaultSession()
+            self.session.delegate = self
+            self.session.activateSession()
+            let watchRequest = NSFetchRequest(entityName: "NoteList")
+            let titleSort = NSSortDescriptor(key: "noteCategory", ascending: true)
+            let textSort = NSSortDescriptor(key: "noteText", ascending: true)
+            let dateSort = NSSortDescriptor(key: "noteDate", ascending: true)
+            watchRequest.sortDescriptors = [titleSort, textSort, dateSort]
+            watchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
+            
+            do {
+                let results:NSArray = try context.executeFetchRequest(watchRequest)
+                print(results)
+                let dicForWatch:[String:AnyObject] = ["1":results]
+                try session.updateApplicationContext(dicForWatch)
+                
+            } catch  let error as NSError {print(error) }
+            
+        }
         
         let request = NSFetchRequest(entityName: "NoteList")
         let titleSort = NSSortDescriptor(key: "noteText", ascending: true)
@@ -129,47 +152,5 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
             tableView?.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
         default: break
         }
-        
-        
     }
-    
-    /*@IBAction func addNote(sender: UIBarButtonItem) {
-        
-        let alert = UIAlertController(title: "Add category", message: nil, preferredStyle: .Alert)
-        
-        
-        alert.addTextFieldWithConfigurationHandler { (noteCategory) -> Void in
-            noteCategory.placeholder = "Enter category name"
-        }
-        alert.addTextFieldWithConfigurationHandler { (noteText) -> Void in
-            noteText.placeholder = "Enter text"
-        }
-
-        
-        let addAction = UIAlertAction(title: "Add", style: .Default) { _ in
-            
-            let entity = NSEntityDescription.entityForName("NoteList", inManagedObjectContext: self.context)
-            
-            let note = NoteList(entity:entity!, insertIntoManagedObjectContext: self.context)
-            
-            let textField = alert.textFields?.first
-            note.noteCategory = textField?.text
-            
-            
-            do {
-                try self.context.save()
-            } catch let error as NSError {
-                print("Can't save a category \(error.localizedDescription)")
-            }
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        
-        alert.addAction(cancelAction)
-        alert.addAction(addAction)
-        
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }*/
-    
 }
