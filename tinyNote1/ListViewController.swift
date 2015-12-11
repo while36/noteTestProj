@@ -12,7 +12,7 @@ import WatchConnectivity
 class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate,WCSessionDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
-    var note: String = ""
+    var note = String()
     var session: WCSession!
     
     let formatter = NSDateFormatter()
@@ -22,10 +22,14 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "notesToEdit"  {
             if let destination = segue.destinationViewController as? EditViewController {
-                let indexPath = self.tableView.indexPathForSelectedRow!
-                let selectedObject = self.fetchedResultController.objectAtIndexPath(indexPath) as? NoteList
+                let indexPath = tableView.indexPathForSelectedRow!
+                let selectedObject = fetchedResultController.objectAtIndexPath(indexPath) as? NoteList
+                print(fetchedResultController.objectAtIndexPath(indexPath) as? NoteList)
+                //tableView.reloadData()
                 destination.notePrototype = selectedObject
                 destination.indexToDelete = indexPath
+                destination.date = selectedObject!.noteDate!
+                destination.note = self.note
             }
         }
     }
@@ -34,7 +38,6 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
         super.viewDidLoad()
         self.tableView!.dataSource = self
         self.tableView!.delegate = self
-        
         if(WCSession.isSupported()) {
             self.session = WCSession.defaultSession()
             self.session.delegate = self
@@ -44,11 +47,11 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
             let textSort = NSSortDescriptor(key: "noteText", ascending: true)
             let dateSort = NSSortDescriptor(key: "noteDate", ascending: true)
             watchRequest.sortDescriptors = [titleSort, textSort, dateSort]
+            watchRequest.sortDescriptors = [NSSortDescriptor(key: "noteDate", ascending: false)]
             watchRequest.resultType = NSFetchRequestResultType.DictionaryResultType
             
             do {
                 let results:NSArray = try context.executeFetchRequest(watchRequest)
-                print(results)
                 let dicForWatch:[String:AnyObject] = ["1":results]
                 try session.updateApplicationContext(dicForWatch)
                 
@@ -62,6 +65,7 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
         let dateSort = NSSortDescriptor(key: "noteDate", ascending: true)
         request.sortDescriptors = [titleSort, subtitleSort, dateSort]
         request.predicate = NSPredicate(format: "noteCategory = %@", argumentArray: [note])
+        request.sortDescriptors = [NSSortDescriptor(key: "noteDate", ascending: false)]
         fetchedResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultController.delegate = self
         
@@ -70,6 +74,7 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
         } catch let error as NSError {
             print("Can't perform \(error.localizedDescription)")
         }
+        tableView.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -95,11 +100,11 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         formatter.dateFormat = "yyyy-MM-dd"
         let note = fetchedResultController.objectAtIndexPath(indexPath) as! NoteList
-        print(note)
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell")!
         if note.noteCategory == self.note {
-        cell.textLabel?.text = note.noteText
-        cell.detailTextLabel?.text = formatter.stringFromDate(note.noteDate!)
+            print(note.noteText, "sssssssss")
+            cell.textLabel?.text = note.noteText
+            cell.detailTextLabel?.text = formatter.stringFromDate(note.noteDate!)
         }
         
         return cell
@@ -152,5 +157,8 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate, 
             tableView?.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
         default: break
         }
+    }
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
     }
 }

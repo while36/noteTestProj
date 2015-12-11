@@ -32,6 +32,7 @@
 		CE9CA37D1C1165020077F2E2 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CA37C1C1165020077F2E2 /* ExtensionDelegate.swift */; };
 		CE9CA37F1C1165020077F2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9CA37E1C1165020077F2E2 /* Assets.xcassets */; };
 		CE9CA3831C1165020077F2E2 /* watchNote.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CE9CA3691C1165020077F2E2 /* watchNote.app */; };
+		CEC1F3531C1B03DA00C0D961 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1F3521C1B03DA00C0D961 /* PopoverViewController.swift */; };
 		CEF36D161C16F54600996D8C /* CategoryRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF36D151C16F54600996D8C /* CategoryRowController.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		CE9CA37C1C1165020077F2E2 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		CE9CA37E1C1165020077F2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE9CA3801C1165020077F2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC1F3521C1B03DA00C0D961 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		CEF36D151C16F54600996D8C /* CategoryRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +200,7 @@
 				742441CB1C0C4ED4001A38B9 /* Info.plist */,
 				742441C31C0C4ED4001A38B9 /* tinyNote1.xcdatamodeld */,
 				CE1324261C0ED24E0013F044 /* Model */,
+				CEC1F3521C1B03DA00C0D961 /* PopoverViewController.swift */,
 			);
 			path = tinyNote1;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			files = (
 				742441F01C0C502D001A38B9 /* EditViewController.swift in Sources */,
 				742441BF1C0C4ED4001A38B9 /* CategoryViewController.swift in Sources */,
+				CEC1F3531C1B03DA00C0D961 /* PopoverViewController.swift in Sources */,
 				742441BD1C0C4ED4001A38B9 /* AppDelegate.swift in Sources */,
 				CE13242B1C0ED2700013F044 /* CategoryList+CoreDataProperties.swift in Sources */,
 				742441EE1C0C5002001A38B9 /* ListViewController.swift in Sources */,
