@@ -18,15 +18,23 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     @IBOutlet weak var textView: UITextView!
     var fetchedResultController: NSFetchedResultsController!
     var noteFetchedResultController: NSFetchedResultsController!
-    var selectedCategory = "1"
+    var selectedCategory = "default"
     var indexToDelete = NSIndexPath()
     var doneTapped = false
     var formatter = NSDateFormatter()
     var date:NSDate!
     var note = String()
+    var categoryWasOpen = false
+    var categoryShowed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 0.5)
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.grayColor().CGColor
+        textView.layer.borderColor = borderColor.CGColor
+        textView.layer.cornerRadius = 7
+        
         formatter.dateStyle = .FullStyle
         doneButton.enabled = false
         if notePrototype != nil {
@@ -74,12 +82,20 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     }()
     
     @IBAction func showCategory(sender: AnyObject) {
+        categoryShowed = true
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("popover")
-        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
-        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-        popover.barButtonItem = sender as? UIBarButtonItem
-        presentViewController(vc, animated: true, completion:nil)
+        
+        if let vc = storyboard.instantiateViewControllerWithIdentifier("popover") as? UINavigationController{
+            vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+            vc.preferredContentSize = CGSizeMake(200, 300)
+            let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+            popover.barButtonItem = sender as? UIBarButtonItem
+            
+            if let tmpVc = vc.viewControllers[0]  as? PopoverViewController {
+                tmpVc.category1 = self;
+            }
+            presentViewController(vc, animated: true, completion:nil)
+        }
     }
     
     @IBAction func saveAction(sender: AnyObject) {
@@ -91,14 +107,21 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate, 
             let note = NoteList(entity:entity!, insertIntoManagedObjectContext: self.context)
             note.noteText = textView.text
             note.noteDate = NSDate()
-            note.noteCategory = selectedCategory
+            note.noteCategory = self.note
+            if (note.noteText!.isEmpty) {
+            context.deleteObject(note)
+            }
         } else {
             //let noteToEdit = self.noteFetchedResultController.objectAtIndexPath(indexToDelete) as? NoteList
+           print(selectedCategory)
             if notePrototype!.noteText != textView.text {
                 notePrototype!.noteDate = NSDate()
             }
+            if categoryWasOpen {
+                notePrototype!.noteCategory = selectedCategory
+            }
             notePrototype!.noteText = textView.text
-            notePrototype!.noteCategory = selectedCategory
+            
 
         }
         do {
@@ -125,19 +148,6 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate, 
         return sectionData.numberOfObjects
     }
     
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let category = fetchedResultController.objectAtIndexPath(indexPath) as! CategoryList
-//        let cell = tableView.dequeueReusableCellWithIdentifier("DropUpCell")!
-//        selectedCategory = category.categoryName!
-//        cell.textLabel?.text = category.categoryName
-//        return cell
-//    }
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        let category = fetchedResultController.objectAtIndexPath(indexPath) as! CategoryList
-//        selectedCategory = category.categoryName!
-//        tableView.hidden = true
-//    }
     @IBAction func deleteNote(sender: AnyObject) {
         context.deleteObject(notePrototype!)
         self.navigationController?.popViewControllerAnimated(true)
@@ -150,30 +160,21 @@ class EditViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     }
     
     @IBAction func showSharing(sender: AnyObject) {
-        performSegueWithIdentifier("delete", sender: self)
         let sharingVC = UIActivityViewController(activityItems: [textView.text], applicationActivities: [])
         presentViewController(sharingVC, animated: true, completion: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        if !doneTapped {
+        print(categoryShowed, "weqwewww")
+        if !doneTapped && !categoryShowed {
         self.saveAction(self)
-        }
         notePrototype = nil
+        }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        categoryShowed = false
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.FullScreen
-    }
     
-    func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
-        let navigationController = UINavigationController(rootViewController: controller.presentedViewController)
-        let btnDone = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "dismiss")
-        navigationController.topViewController!.navigationItem.rightBarButtonItem = btnDone
-        return navigationController
-    }
-    
-    func dismiss() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
 }

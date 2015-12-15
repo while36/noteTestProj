@@ -65,7 +65,7 @@
         <!--Category-->
         <scene sceneID="4bJ-kJ-bLK">
             <objects>
-                <tableViewController storyboardIdentifier="popover" id="g0o-cl-0ZA" customClass="PopoverViewController" customModule="tinyNote1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="g0o-cl-0ZA" customClass="PopoverViewController" customModule="tinyNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="TPD-X2-7WY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,7 +85,13 @@
                             <outlet property="delegate" destination="g0o-cl-0ZA" id="WYZ-Uu-Te0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Category" id="gV8-pL-NTN"/>
+                    <navigationItem key="navigationItem" title="Category" id="gV8-pL-NTN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ewB-9D-300">
+                            <connections>
+                                <action selector="cancelPopover:" destination="g0o-cl-0ZA" id="2Ht-oo-rj4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JLx-Vj-PHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,8 +109,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wk6-WT-T53">
-                                <rect key="frame" x="-4" y="20" width="328" height="580"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wk6-WT-T53">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" textLabel="hin-5S-7aK" detailTextLabel="ZoP-JF-7L5" style="IBUITableViewCellStyleSubtitle" id="GR1-VN-bB6">
@@ -131,7 +137,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BNE-rg-Zn2" kind="show" identifier="notesToEdit" action="showDetailViewController:sender:" id="iaM-5s-Bdj"/>
+                                            <segue destination="BNE-rg-Zn2" kind="show" identifier="notesToEdit" id="sMx-Wx-X5d"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -173,18 +179,21 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Gg-E8-hpi">
-                                <rect key="frame" x="-4" y="49" width="328" height="283"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Gg-E8-hpi">
+                                <rect key="frame" x="6" y="29" width="307" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="343" id="qcv-9B-hzc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="BNE-rg-Zn2" id="FfH-bY-fzc"/>
                                 </connections>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7g-Ld-Wk1">
-                                <rect key="frame" x="-4" y="28" width="328" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7g-Ld-Wk1">
+                                <rect key="frame" x="-4" y="8" width="328" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="x3P-or-niq"/>
                                 </constraints>
@@ -192,16 +201,40 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pE6-n9-yMe">
+                                <rect key="frame" x="-4" y="372" width="328" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="trash" id="AKu-1X-tLf">
+                                        <connections>
+                                            <action selector="deleteNote:" destination="BNE-rg-Zn2" id="AfS-u0-Our"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="22y-Oh-R4i"/>
+                                    <barButtonItem title="Category" id="2Gr-qO-Ov0">
+                                        <connections>
+                                            <action selector="showCategory:" destination="BNE-rg-Zn2" id="n8G-tw-ij7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gUa-99-waX"/>
+                                    <barButtonItem systemItem="action" id="hhl-dN-VEf">
+                                        <connections>
+                                            <action selector="showSharing:" destination="BNE-rg-Zn2" id="LxM-kf-HP1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9Gg-E8-hpi" firstAttribute="centerX" secondItem="y7g-Ld-Wk1" secondAttribute="centerX" id="2T2-5o-mlu"/>
+                            <constraint firstItem="pE6-n9-yMe" firstAttribute="leading" secondItem="s9c-kt-psT" secondAttribute="leadingMargin" constant="-20" id="ChA-nT-bTs"/>
                             <constraint firstItem="y7g-Ld-Wk1" firstAttribute="leading" secondItem="s9c-kt-psT" secondAttribute="leadingMargin" constant="-20" id="E2v-QH-Guv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9Gg-E8-hpi" secondAttribute="trailing" constant="-20" id="QaR-0Y-RKk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pE6-n9-yMe" secondAttribute="trailing" constant="-20" id="MZi-uw-78r"/>
+                            <constraint firstItem="9Gg-E8-hpi" firstAttribute="top" secondItem="y7g-Ld-Wk1" secondAttribute="bottom" id="Qrr-us-JT7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="y7g-Ld-Wk1" secondAttribute="trailing" constant="-20" id="SAP-Ie-45b"/>
-                            <constraint firstItem="9Gg-E8-hpi" firstAttribute="top" secondItem="jQN-CS-lC6" secondAttribute="bottom" constant="29" id="dIi-Hm-4cw"/>
-                            <constraint firstItem="mGd-p3-Bqa" firstAttribute="top" secondItem="9Gg-E8-hpi" secondAttribute="bottom" constant="268" id="fjb-0P-2xX"/>
+                            <constraint firstItem="mGd-p3-Bqa" firstAttribute="top" secondItem="pE6-n9-yMe" secondAttribute="bottom" id="eMd-Lg-fn2"/>
                             <constraint firstItem="y7g-Ld-Wk1" firstAttribute="top" secondItem="jQN-CS-lC6" secondAttribute="bottom" constant="8" id="kdJ-nu-RfD"/>
-                            <constraint firstItem="9Gg-E8-hpi" firstAttribute="leading" secondItem="s9c-kt-psT" secondAttribute="leadingMargin" constant="-20" id="zOb-DS-XRw"/>
+                            <constraint firstItem="9Gg-E8-hpi" firstAttribute="leading" secondItem="s9c-kt-psT" secondAttribute="leading" constant="6" id="pIf-j7-LRd"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -210,7 +243,7 @@
                                 <action selector="deleteNote:" destination="BNE-rg-Zn2" id="5xY-XH-cg3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Category" width="503" id="HIG-gj-uWP">
+                        <barButtonItem title="Category" width="234" id="HIG-gj-uWP">
                             <connections>
                                 <action selector="showCategory:" destination="BNE-rg-Zn2" id="nlr-qa-NTv"/>
                             </connections>
@@ -249,7 +282,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="fou-yr-h6q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.58012820512820507" green="0.58012820512820507" blue="0.58012820512820507" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -263,7 +296,7 @@
         <!--Navigation Controller-->
         <scene sceneID="dMR-0D-Q7I">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SRP-C5-FGd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="popover" automaticallyAdjustsScrollViewInsets="NO" id="SRP-C5-FGd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lSN-1r-Ixr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -278,30 +311,8 @@
             </objects>
             <point key="canvasLocation" x="820" y="1098"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="GMw-eg-EXz">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kOs-y8-Adv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="currentContext" toolbarHidden="NO" id="f4V-YK-sbb" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sxM-YA-2UG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="tgu-0E-Xbe">
-                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="BNE-rg-Zn2" kind="relationship" relationship="rootViewController" id="zk7-PO-Ma5"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="2316" y="-113"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iaM-5s-Bdj"/>
+        <segue reference="sMx-Wx-X5d"/>
     </inferredMetricsTieBreakers>
 </document>

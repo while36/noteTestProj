@@ -27,17 +27,12 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate, NSFetchedRes
     override init() {
         super.init()
         
-        if (WCSession.isSupported()) {
-            session = WCSession.defaultSession()
-            session.delegate = self
-            session.activateSession()
-        }
-        
     }
 
     
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         for values in applicationContext.values {
+            print(values)
             dicFromApp = values
         }
         
@@ -94,16 +89,17 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate, NSFetchedRes
         // Configure interface objects here.
     }
 //    
-//    func runAfterDelay(delay: NSTimeInterval, block: dispatch_block_t) {
-//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-//        dispatch_after(time, dispatch_get_main_queue(), block)
-//    }
+    func runAfterDelay(delay: NSTimeInterval, block: dispatch_block_t) {
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+        dispatch_after(time, dispatch_get_main_queue(), block)
+    }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         self.setupTable()
     }
+    
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible

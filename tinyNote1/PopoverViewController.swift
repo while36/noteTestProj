@@ -9,9 +9,13 @@
 import UIKit
 import CoreData
 
+
 class PopoverViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     var fetchedResultController: NSFetchedResultsController!
-
+//    var delegate:ModalViewControllerDelegate!
+    
+    var category1: EditViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,18 +62,23 @@ class PopoverViewController: UITableViewController, NSFetchedResultsControllerDe
         return cell
     }
     
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        prepareForSegue(UIStoryboardSegue, sender: AnyObject?){
-//            if segue.identifier == "closepopover"  {
-//                if let destination = segue.destinationViewController as? EditViewController {
-//                    let selectedObject = self.fetchedResultController.objectAtIndexPath(indexPath) as? CategoryList
-//                    destination.selectedCategory = selectedObject!.categoryName!
-//                }
-//            }
-//            
-//        }
-//    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+        category1?.selectedCategory = (cell?.textLabel?.text)!
+        category1!.categoryWasOpen = true
+        category1!.categoryShowed = false
+        category1?.doneTapped = false
+        
+    }
+    @IBAction func cancelPopover(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        category1!.categoryShowed = false
+        category1?.doneTapped = false
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
